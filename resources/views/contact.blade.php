@@ -19,44 +19,45 @@
         {{ session('success') }}
     </div>
          @endif
-                <div class="contact-form bg-light p-5">
-                    <form method="POST" action="{{ route('contact') }}">
-                        @csrf
-                    <div class="row g-3">
-                        <div class="col-12 col-sm-6">
-                            <label for="name" class="form-label">お名前<span class="text-danger"> *</span></label>
-                            <input type="text" class="form-control border-0" name="name" placeholder="例) 山田"  value="{{ old('name') }}" style="height: 55px;">
-                            @error('name')
-                            <div class="text-danger"><li>{{ $message }} </li></div>
-                           @enderror
-                        </div>
-                        <div class="col-12 col-sm-6">
-                            <label for="name" class="form-label">メールアドレス<span class="text-danger"> *</span></label>
-                            <input type="email" class="form-control border-0" name="email" placeholder="例) sample@demo.com" value="{{ old('email') }}" style="height: 55px;">
-                            @error('email')
-                            <div class="text-danger"><li>{{ $message }} </li></div>
-                           @enderror
-                        </div>
-                        <div class="col-12">
-                            <label for="name" class="form-label">電話番号<span class="text-danger"> *</span></label>
-                            <input type="text" class="form-control border-0" name="phone" placeholder="例) 090-1234-4567" value="{{ old('phone') }}" style="height: 55px;">
-                            @error('phone')
-                            <div class="text-danger"><li>{{ $message }} </li></div>
-                           @enderror
-                        </div>
-                        <div class="col-12">
-                            <label for="name" class="form-label">お問い合わせ内容<span class="text-danger"> *</span></label>
-                            <textarea class="form-control border-0" rows="4" name="message" value="{{ old('message') }}">{{ old('message') }}</textarea>
-                            @error('message')
-                            <div class="text-danger"><li>{{ $message }} </li></div>
-                           @enderror
-                        </div>
-                        <div class="col-12">
-                            <button class="btn btn-primary w-100 py-3" type="submit">送信</button>
-                        </div>
-                    </form>
+         <div class="contact-form bg-light p-3" style="max-width: 100%;">
+            <form method="POST" action="{{ route('contact') }}">
+                @csrf
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label for="name" class="form-label">お名前<span class="text-danger"> *</span></label>
+                        <input type="text" class="form-control border-0" name="name" placeholder="例) 山田" value="{{ old('name') }}" style="height: 45px;">
+                        @error('name')
+                            <div class="text-danger"><li>{{ $message }}</li></div>
+                        @enderror
+                    </div>
+                    <div class="col-12">
+                        <label for="email" class="form-label">メールアドレス<span class="text-danger"> *</span></label>
+                        <input type="email" class="form-control border-0" name="email" placeholder="例) sample@demo.com" value="{{ old('email') }}" style="height: 45px;">
+                        @error('email')
+                            <div class="text-danger"><li>{{ $message }}</li></div>
+                        @enderror
+                    </div>
+                    <div class="col-12">
+                        <label for="phone" class="form-label">電話番号<span class="text-danger"> *</span></label>
+                        <input type="text" class="form-control border-0" name="phone" placeholder="例) 090-1234-4567" value="{{ old('phone') }}" style="height: 45px;">
+                        @error('phone')
+                            <div class="text-danger"><li>{{ $message }}</li></div>
+                        @enderror
+                    </div>
+                    <div class="col-12">
+                        <label for="message" class="form-label">お問い合わせ内容<span class="text-danger"> *</span></label>
+                        <textarea class="form-control border-0" rows="4" name="message">{{ old('message') }}</textarea>
+                        @error('message')
+                            <div class="text-danger"><li>{{ $message }}</li></div>
+                        @enderror
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary w-100 py-3" type="submit">送信</button>
                     </div>
                 </div>
+            </form>
+        </div>
+        
             </div>
         </div>
     </div>
