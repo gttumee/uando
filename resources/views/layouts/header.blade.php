@@ -84,8 +84,9 @@
                     <a href="{{route('trashcoll')}}" class="nav-item nav-link">無料引き取りゴミ</a>
                     <a href="{{route('contact')}}" class="nav-item nav-link">問い合わせ</a>
                     </div>
-                    <a href="{{route('index')}}" class="nav-item nav-link bg-primary text-white px-5 ms-3 d-none d-lg-block">無料でお見積りこちら <i class="bi bi-arrow-right"></i></a>
-                </div>
+<!-- ボタンのように動作するための<a>要素 -->
+    <a class="nav-item nav-link bg-primary text-white px-5 ms-3 d-none d-lg-block my-scroll-button" href="#">無料でお見積りこちら <i class="bi bi-arrow-right"></i></a>
+</div>
             </div>
         </nav>
     </div>

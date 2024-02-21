@@ -31,83 +31,7 @@
     <!-- About End -->
 
 
-    <!-- Appointment Start -->
-    <div class="container-fluid bg-light py-6 px-3"> <!-- px-3 に変更 -->
-        <div class="row gx-3"> 
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <div class="mb-4">
-                        <h1 class="display-5 text-uppercase mb-4"><span class="text-primary">無料で</span>見積り </h1>
-                    </div>
-                    <p class="mb-5">私たちは、お客様のニーズに合わせて柔軟なサービスを提供することを大切にしています。遺品整理、引っ越し、掃除など、さまざまなサービスに関して、無料で見積もりを提供しております。
-                    </p>
-                 </div>
-                <div class="col-lg-8">
-                    <div class="bg-white text-center p-4">
-                        <div class="bg-white text-center p-5">
-                         @if (session('success'))
-                         <div class="alert alert-success">
-                            {{ session('success') }}
-                         </div>
-                           @endif
-                        <form method="POST" action="{{ route('requestcreate') }}">
-                            @csrf
-                            <div class="row g-3">
-                                <div class="col-12 col-sm-6">
-                                    <div class="mb-3 text-start">
-                                        <label for="name" class="form-label">お名前<span class="text-danger"> *</span></label>
-                                        <input type="text" class="form-control bg-light border-0 text-left" name="name" placeholder="例) 山田" value="{{ old('name') }}" style="height: 45px;">
-                                        @error('name')
-                                            <div class="text-danger"><li>{{ $message }}</li></div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="mb-3 text-start">
-                                        <label for="name" class="form-label">メールアドレス<span class="text-danger"> *</span></label>
-                                        <input type="text" class="form-control bg-light border-0 text-left" name="email" placeholder="例) sample@demo.com" value="{{ old('email') }}" style="height: 45px;">
-                                        @error('email')
-                                            <div class="text-danger"><li>{{ $message }}</li></div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="mb-3 text-start">
-                                        <label for="name" class="form-label">電話番号<span class="text-danger"> *</span></label>
-                                        <input type="text" class="form-control bg-light border-0 text-left" name="phone" placeholder="例) 090-1234-4567" value="{{ old('phone') }}" style="height: 45px;">
-                                        @error('phone')
-                                            <div class="text-danger"><li>{{ $message }}</li></div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="mb-3 text-start">
-                                        <label for="name" class="form-label">住所<span class="text-danger"> *</span></label>
-                                        <input type="text" class="form-control bg-light border-0 text-left" name="address" placeholder="例) 東京都◯区◯丁目◯番地◯号" value="{{ old('address') }}" style="height: 45px;">
-                                        @error('address')
-                                            <div class="text-danger"><li>{{ $message }}</li></div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="mb-3 text-start">
-                                        <label for="name" class="form-label">作業内容・希望日付等<span class="text-danger"> *</span></label>
-                                        <textarea class="form-control bg-light border-0" rows="5" name="content">{{ old('content') }}</textarea>
-                                        @error('content')
-                                        <div class="text-danger"><li>{{ $message }} </li></div>
-                                       @enderror
-                                    </div>
-                                </div>                              
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">無料で見積り</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </select>
-            </div>
-        </div>
-    </div>
+
     <div class="container-fluid bg-light py-6 px-5">
         <div class="text-center mx-auto mb-5" style="max-width: 600px;">
             <h1 class="display-5 text-uppercase mb-4">サービス一覧</h1>
@@ -134,7 +58,7 @@
             @endforeach
         </div>
     </div>
-    <div class="container-fluid bg-light py-6 px-5">
+    <div class="container-fluid py-6 px-5">
         <div class="text-center mx-auto mb-5" style="max-width: 600px;">
             <h1 class="display-5 text-uppercase mb-4">実績ご紹介</h1>
         </div>
@@ -156,4 +80,103 @@
           @endforeach
         </div>
     </div>
+        <!-- Appointment Start -->
+        <div class="container-fluid bg-light py-6 px-3" name="scroll-target"> <!-- px-3 に変更 -->
+            <div class="row gx-3"> 
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="mb-4">
+                            <h1 class="display-5 text-uppercase mb-4"><span class="text-primary">無料で</span>見積り </h1>
+                        </div>
+                        <p class="mb-5">私たちは、お客様のニーズに合わせて柔軟なサービスを提供することを大切にしています。遺品整理、引っ越し、掃除など、さまざまなサービスに関して、無料で見積もりを提供しております。
+                        </p>
+                     </div>
+                    <div class="col-lg-8">
+                        <div class="bg-white text-center p-4">
+                            <div class="bg-white text-center p-5">
+                             @if (session('success'))
+                             <div class="alert alert-success">
+                                {{ session('success') }}
+                             </div>
+                               @endif
+                            <form method="POST" action="{{ route('requestcreate') }}">
+                                @csrf
+                                <div class="row g-3">
+                                    <div class="col-12 col-sm-6">
+                                        <div class="mb-3 text-start">
+                                            <label for="name" class="form-label">お名前<span class="text-danger"> *</span></label>
+                                            <input type="text" class="form-control bg-light border-0 text-left" name="name" placeholder="例) 山田" value="{{ old('name') }}" style="height: 45px;">
+                                            @error('name')
+                                                <div class="text-danger"><li>{{ $message }}</li></div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="mb-3 text-start">
+                                            <label for="name" class="form-label">メールアドレス<span class="text-danger"> *</span></label>
+                                            <input type="text" class="form-control bg-light border-0 text-left" name="email" placeholder="例) sample@demo.com" value="{{ old('email') }}" style="height: 45px;">
+                                            @error('email')
+                                                <div class="text-danger"><li>{{ $message }}</li></div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="mb-3 text-start">
+                                            <label for="name" class="form-label">電話番号<span class="text-danger"> *</span></label>
+                                            <input type="text" class="form-control bg-light border-0 text-left" name="phone" placeholder="例) 090-1234-4567" value="{{ old('phone') }}" style="height: 45px;">
+                                            @error('phone')
+                                                <div class="text-danger"><li>{{ $message }}</li></div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="mb-3 text-start">
+                                            <label for="name" class="form-label">住所<span class="text-danger"> *</span></label>
+                                            <input type="text" class="form-control bg-light border-0 text-left" name="address" placeholder="例) 東京都◯区◯丁目◯番地◯号" value="{{ old('address') }}" style="height: 45px;">
+                                            @error('address')
+                                                <div class="text-danger"><li>{{ $message }}</li></div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="mb-3 text-start">
+                                            <label for="name" class="form-label">作業内容・希望日付等<span class="text-danger"> *</span></label>
+                                            <textarea class="form-control bg-light border-0" rows="5" name="content">{{ old('content') }}</textarea>
+                                            @error('content')
+                                            <div class="text-danger"><li>{{ $message }} </li></div>
+                                           @enderror
+                                        </div>
+                                    </div>                              
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100 py-3" type="submit">無料で見積り</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </select>
+                </div>
+            </div>
+        </div>
+        <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    // ボタンのクリックイベントを検知する
+    document.querySelector('.my-scroll-button').addEventListener('click', function(event) {
+        event.preventDefault(); // デフォルトのクリックイベントを無効化
+
+        // スクロール先の要素を取得
+        var targetElement = document.querySelector('[name="scroll-target"]');
+
+        // スクロールアニメーション
+        targetElement.scrollIntoView({
+            behavior: 'smooth' // スムーズスクロールを有効化
+        });
+    });
+});
+
+            </script>
+            
+            
+            
 @endsection
+
+    

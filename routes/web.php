@@ -37,12 +37,6 @@ Route::post('/requestcreate',[ServiceController::class,'requestcreate'])->name('
 
 
 // 管理側
-
-
-// Route::get('/admin', function () {
-//     return view('admin.addservice');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
     Route::post('register', [RegisteredUserController::class, 'store']);
